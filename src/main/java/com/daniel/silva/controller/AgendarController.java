@@ -7,9 +7,9 @@ import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
 
 @RestController
 public class AgendarController {
@@ -44,21 +44,17 @@ public class AgendarController {
         return ResponseEntity.ok().body(service.getAll());
     }
 
+
     @PutMapping( path = "/{id}")
-    public ResponseEntity<AgendarModel> replace(@PathVariable (value = "id") String id){
-         if (!repository.existsById(id)){
-             return  ResponseEntity.notFound().build();
-         }
-         AgendarModel agendarModel = new AgendarModel();
-         agendarModel.setId(id);
-         agendarModel =repository.save(agendarModel);
-       return  ResponseEntity.ok(agendarModel);
+    public ResponseEntity<AgendarModel> replace(@PathVariable(value = "id") String id , @RequestBody AgendarDTO agendarDTO ){
+       return service.update(id ,agendarDTO);
+
     }
+
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable (value = "id") String id) {
         return service.deleteById(id);
-
 
     }
 }

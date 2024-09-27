@@ -1,15 +1,15 @@
 package com.daniel.silva.model;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "Agendamentos")
 public class AgendarModel {
 
@@ -28,11 +28,6 @@ public class AgendarModel {
 
     private LocalDateTime localDateTime ;
 
-
-
-    public AgendarModel(){
-
-    }
 
     public AgendarModel(String id, String nome, String email, LocalDateTime localDateTime , String diaMes,String descricao) {
         this.id = id;

@@ -1,10 +1,10 @@
 package com.daniel.silva.service;
 
+import com.daniel.silva.dto.AgendarDTO;
 import com.daniel.silva.model.AgendarModel;
 import com.daniel.silva.repository.AgendarRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 
@@ -27,12 +27,18 @@ public class AgendarService {
         return repository.findAll();
     }
 
-    public ResponseEntity<AgendarModel> update(String id ){
+    public ResponseEntity<AgendarModel> update(String id , AgendarDTO agendarDTO){
         if (!repository.existsById(id)){
             return ResponseEntity.notFound().build();
         }
+        AgendarModel agendarModel = new AgendarModel();
+        agendarModel.setId(id);
+        agendarModel.setNome(agendarDTO.nome());
+        agendarModel.setDescricao(agendarDTO.descricao());
+        agendarModel.setDiaMes(agendarDTO.diaMes());
+        agendarModel.setEmail(agendarDTO.email());
 
-        return null;
+        return ResponseEntity.ok(repository.save(agendarModel));
 
     }
 
@@ -44,4 +50,8 @@ public class AgendarService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-}
+
+
+    }
+
+

@@ -1,0 +1,19 @@
+version: "3"
+services:
+  daniel00mongodb:
+    image: mongo:latest
+    container_name: "daniel00mongodb"
+    ports:
+      - "27017:27017"
+  springboot-agendamentos:
+    image: springboot-agendamentos
+    container_name: springboot-agendamentos
+    ports:
+      - "8090:8090"
+
+    links:
+      -  daniel00mongodb
+
+
+
+
