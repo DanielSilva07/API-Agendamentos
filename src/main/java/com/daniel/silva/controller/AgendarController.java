@@ -17,7 +17,8 @@ public class AgendarController {
     private final AgendarService service;
     private final AgendarRepository repository;
 
-    public AgendarController(AgendarService service,AgendarRepository repository){
+    public AgendarController(AgendarService service,
+                             AgendarRepository repository){
         this.service=service;
         this.repository =repository;
     }
@@ -36,7 +37,7 @@ public class AgendarController {
 
     @GetMapping("/teste")
     public String teste(){
-        return "LEONARDO CONSERTA MEU CELULAR !!!";
+        return "LEONARDO  !!!";
     }
 
     @GetMapping("/getAll")
@@ -50,7 +51,6 @@ public class AgendarController {
        return service.update(id ,agendarDTO);
 
     }
-
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable (value = "id") String id) {
