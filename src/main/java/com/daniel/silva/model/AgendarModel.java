@@ -29,14 +29,4 @@ public class AgendarModel {
     private LocalDateTime localDateTime ;
 
 
-    public AgendarModel(String id, String nome, String email, LocalDateTime localDateTime , String diaMes,String descricao) {
-        this.id = id;
-        this.diaMes= diaMes;
-        this.nome = nome;
-        this.descricao=descricao;
-        this.email = email;
-        this.localDateTime = localDateTime;
-    }
-
-
 }
