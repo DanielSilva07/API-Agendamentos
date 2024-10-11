@@ -13,10 +13,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-#    - name: Configure AWS credentials
-#      uses: aws-actions/configure-aws-credentials@v1
-#      with:
-#        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        aws-region: ${{ env.AWS_REGION }}
-#
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - name: Build project
+      run: mvn clean install -DsKipTests
+    - name: Login Docker Hub
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+    - name: Build docker image
+      run: docker build -t daniel00dev/spring-boot-api-agendamentos .
+    - name: push image docker
+      run: docker push daniel00dev/spring-boot-api-agendamentos
+
+
+

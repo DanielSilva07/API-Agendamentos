@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
   springboot-agendamentos:
-    image: spring-agendamentos-17
+    image: daniel00dev/spring-boot-api-agendamentos:1.0
     container_name: springboot-agendamentos
     ports:
       - "8090:8090"
