@@ -37,7 +37,7 @@ public class AgendarController {
 
     @GetMapping("/teste")
     public String teste(){
-        return "!!! MIAMI HEAT !!!";
+        return "MIAMI HEAT ";
     }
 
     @GetMapping("/getAll")
