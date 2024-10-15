@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Pull image from docker hub
         run: docker pull daniel00dev/spring-boot-api-agendamentos:latest
-      - name: Remove docker conteiner
+      - name: Remove docker container
         run: docker rm -f api-agendar
       - name: Run docker container
         run: docker run -d -p 8090:8090 --name api-agendar daniel00dev/spring-boot-api-agendamentos
