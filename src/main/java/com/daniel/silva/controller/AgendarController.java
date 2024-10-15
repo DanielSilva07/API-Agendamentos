@@ -37,7 +37,7 @@ public class AgendarController {
 
     @GetMapping("/teste")
     public String teste(){
-        return "LEONARDO  !!!";
+        return " MIAMI HEAT ** Daniel  ";
     }
 
     @GetMapping("/getAll")
@@ -55,6 +55,7 @@ public class AgendarController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable (value = "id") String id) {
         return service.deleteById(id);
+
 
     }
 }
