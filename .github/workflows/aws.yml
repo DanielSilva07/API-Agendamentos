@@ -31,7 +31,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: sudo docker pull daniel00dev/spring-boot-api-agendamentos:latest
+        run: docker pull daniel00dev/spring-boot-api-agendamentos:latest
       - name: Remove docker conteiner
         run: docker rm -f api-agendar
       - name: Run docker container
