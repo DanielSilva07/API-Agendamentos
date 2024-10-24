@@ -1,4 +1,4 @@
-projeto pessoal que estou desenvolvendo para meu primo que tem uma loja para reparos de smartphones , peguei esse problema do mundo real para aprimorar meus conhecimentos no desenvolvimento de software.
+Projeto pessoal que estou desenvolvendo para meu primo que tem uma loja para reparos de smartphones , peguei esse problema do mundo real para aprimorar meus conhecimentos no desenvolvimento de software.
 
 Desenvolvi uma API para fazer agendamentos para serviços de reparo no celular. 
 
