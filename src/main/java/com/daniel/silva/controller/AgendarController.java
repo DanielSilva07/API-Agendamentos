@@ -7,9 +7,7 @@ import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
 import java.util.List;
-
 
 @RestController
 public class AgendarController {
@@ -25,19 +23,7 @@ public class AgendarController {
 
     @PostMapping("/save")
     public ResponseEntity<AgendarModel> salvar(@RequestBody @Valid  AgendarDTO agendarDTO){
-
-        var agendarModel = new AgendarModel();
-        agendarModel.setNome(agendarDTO.nome());
-        agendarModel.setDiaMes(agendarDTO.diaMes());
-        agendarModel.setDescricao(agendarDTO.descricao());
-        agendarModel.setLocalDateTime(LocalDateTime.now());
-
-        return ResponseEntity.status(201).body(service.save(agendarModel));
-    }
-
-    @GetMapping("/teste")
-    public String teste(){
-        return " AGNES ";
+        return ResponseEntity.status(201).body(service.save(agendarDTO));
     }
 
     @GetMapping("/getAll")

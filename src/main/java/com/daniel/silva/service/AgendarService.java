@@ -5,6 +5,8 @@ import com.daniel.silva.model.AgendarModel;
 import com.daniel.silva.repository.AgendarRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -18,7 +20,13 @@ public class AgendarService {
 
     }
 
-    public AgendarModel save(AgendarModel agendarModel){
+    public AgendarModel save(AgendarDTO agendarDTO){
+
+        var agendarModel = new AgendarModel();
+        agendarModel.setNome(agendarDTO.nome());
+        agendarModel.setDiaMes(agendarDTO.diaMes());
+        agendarModel.setDescricao(agendarDTO.descricao());
+        agendarModel.setLocalDateTime(LocalDateTime.now());
         return repository.save(agendarModel);
 
     }
