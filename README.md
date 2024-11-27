@@ -5,3 +5,8 @@ Desenvolvi uma API para fazer agendamentos para serviços de reparo no celular. 
 
 # Tecnologias utilizadas: 
 Java , Spring Boot , MongoDB , Github .
+
+# USO
+ O usuário vai inserir o nome , dia e a descrição do serviço para fazer um agendamento
+
+# API Endpoints
