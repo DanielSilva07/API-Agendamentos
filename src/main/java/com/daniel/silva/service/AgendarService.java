@@ -24,7 +24,7 @@ public class AgendarService {
 
         var agendarModel = new AgendarModel();
         agendarModel.setNome(agendarDTO.nome());
-        agendarModel.setDiaMes(agendarDTO.diaMes());
+        agendarModel.setData(agendarDTO.data());
         agendarModel.setDescricao(agendarDTO.descricao());
         agendarModel.setLocalDateTime(LocalDateTime.now());
         return repository.save(agendarModel);
@@ -43,7 +43,7 @@ public class AgendarService {
         agendarModel.setId(id);
         agendarModel.setNome(agendarDTO.nome());
         agendarModel.setDescricao(agendarDTO.descricao());
-        agendarModel.setDiaMes(agendarDTO.diaMes());
+        agendarModel.setData(agendarDTO.data());
         agendarModel.setEmail(agendarDTO.email());
 
         return ResponseEntity.ok(repository.save(agendarModel));
@@ -54,7 +54,7 @@ public class AgendarService {
         return repository.findById(id)
                 .map(taskToDelete ->{
                     repository.deleteById(id);
-                    return ResponseEntity.noContent().build();
+                    return ResponseEntity.ok().build();
                 }).orElse(ResponseEntity.notFound().build());
     }
 

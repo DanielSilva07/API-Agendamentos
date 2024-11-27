@@ -6,7 +6,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +21,7 @@ public class AgendarModel {
     private String descricao;
 
     @NotBlank
-    private String diaMes;
+    private String data;
 
     private String email;
 

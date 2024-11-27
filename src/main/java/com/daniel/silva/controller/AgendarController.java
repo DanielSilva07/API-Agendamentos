@@ -2,7 +2,6 @@ package com.daniel.silva.controller;
 
 import com.daniel.silva.dto.AgendarDTO;
 import com.daniel.silva.model.AgendarModel;
-import com.daniel.silva.repository.AgendarRepository;
 import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +12,10 @@ import java.util.List;
 public class AgendarController {
 
     private final AgendarService service;
-    private final AgendarRepository repository;
 
-    public AgendarController(AgendarService service,
-                             AgendarRepository repository){
+    public AgendarController(AgendarService service){
         this.service=service;
-        this.repository =repository;
+
     }
 
     @PostMapping("/save")
