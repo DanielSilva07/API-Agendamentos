@@ -12,11 +12,28 @@ Java , Spring Boot , MongoDB , Github Actions ,  AWS   .
 
 # API Endpoints
 
-![56111DC2-4D25-4C5B-9154-CCA96B77F73B](https://github.com/user-attachments/assets/f28fe71b-6316-4ec6-ae0a-91fbfbd58bb8)
+{
+
+        "nome": "Daniel",
+        "descricao": "Trocar conector",
+        "data": "03/12/2024"
+}
+
+Body Return:
+
+{
+
+    "id": "674ca0bfde2b95026bccc5d3",
+    "nome": "Daniel",
+    "descricao": "Trocar conector",
+    "data": "03/12/2024",
+    "email": null,
+    "localDateTime": "2024-12-01T17:45:35.173440129"
+}
+
 
 # Pipeline CI-CD
 
-![CB5B5E2D-1F37-4AD5-8653-E05EEFC2A33F](https://github.com/user-attachments/assets/8adb5c86-50ae-4850-a0a7-647d083f5d69)
 
 
 
