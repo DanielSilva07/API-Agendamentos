@@ -71,6 +71,26 @@ Body Return:
 
 # Pipeline CI-CD
 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - name: Build project
+      run: mvn clean install -DsKipTests
+    - name: Login Docker Hub
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+    - name: Build docker image
+      run: docker build -t daniel00dev/spring-boot-api-agendamentos .
+    - name: push image docker
+      run: docker push daniel00dev/spring-boot-api-agendamentos
+
+      
+![Screenshot from 2024-12-01 15-21-49](https://github.com/user-attachments/assets/b769c194-2886-4efb-94b1-241555df4fc2)
 
 
 
