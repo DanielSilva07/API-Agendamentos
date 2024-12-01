@@ -12,6 +12,8 @@ Java , Spring Boot , MongoDB , Github Actions ,  AWS   .
 
 # API Endpoints
 
+POST /http://44.220.157.143:8090/save  
+
 {
 
         "nome": "Daniel",
@@ -30,6 +32,38 @@ Body Return:
     "email": null,
     "localDateTime": "2024-12-01T17:45:35.173440129"
 }
+
+
+GET /http://44.220.157.143:8090/getAll
+
+]   
+    {
+        "id": "674ca0bfde2b95026bccc5d3",
+        "nome": "Daniel",
+        "descricao": "Trocar conector",
+        "data": "03/12/2024",
+        "email": null,
+        "localDateTime": "2024-12-01T17:45:35.173"
+    },
+    
+    {
+        "id": "674ca247de2b95026bccc5d4",
+        "nome": "MELQUISEDEQUE",
+        "descricao": "Trocar tela",
+        "data": "05/12/2024",
+        "email": null,
+        "localDateTime": "2024-12-01T17:52:07.386"
+    },
+    
+    {
+        "id": "674ca25dde2b95026bccc5d5",
+        "nome": "JEROBOÃO",
+        "descricao": "Trocar tela",
+        "data": "05/12/2024",
+        "email": null,
+        "localDateTime": "2024-12-01T17:52:29.283"
+    }
+]
 
 
 # Pipeline CI-CD
