@@ -34,10 +34,13 @@ Body Return:
 }
 
 
-GET /http://44.220.157.143:8090/getAll
+GET /http://44.220.157.143:8090/getAll 
+
+Body Return:
 
 ]   
     {
+    
         "id": "674ca0bfde2b95026bccc5d3",
         "nome": "Daniel",
         "descricao": "Trocar conector",
