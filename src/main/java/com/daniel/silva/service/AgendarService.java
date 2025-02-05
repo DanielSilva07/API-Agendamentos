@@ -13,9 +13,12 @@ import java.util.List;
 @Service
 public class AgendarService {
 
+    private final NotificationRabbitService notificationRabbitService;
     private final AgendarRepository repository;
 
-    public AgendarService(AgendarRepository repository){
+    public AgendarService(NotificationRabbitService notificationRabbitService,
+                          AgendarRepository repository){
+        this.notificationRabbitService = notificationRabbitService;
         this.repository=repository;
 
     }
@@ -27,7 +30,12 @@ public class AgendarService {
         agendarModel.setData(agendarDTO.data());
         agendarModel.setDescricao(agendarDTO.descricao());
         agendarModel.setLocalDateTime(LocalDateTime.now());
+        agendarModel.setEmail(agendarDTO.email());
+
+        notificationRabbitService.sendNotification(agendarDTO , "agendamento-exchange");
+
         return repository.save(agendarModel);
+
 
     }
 

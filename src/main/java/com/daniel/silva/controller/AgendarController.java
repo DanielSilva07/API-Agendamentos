@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/agendamento")
 public class AgendarController {
 
     private final AgendarService service;
@@ -18,12 +19,12 @@ public class AgendarController {
 
     }
 
-    @PostMapping("/save")
+    @PostMapping()
     public ResponseEntity<AgendarModel> salvar(@RequestBody @Valid  AgendarDTO agendarDTO){
         return ResponseEntity.status(201).body(service.save(agendarDTO));
     }
 
-    @GetMapping("/getAll")
+    @GetMapping()
     public ResponseEntity<List<AgendarModel>> getAll(){
         return ResponseEntity.ok().body(service.getAll());
     }
@@ -32,13 +33,10 @@ public class AgendarController {
     @PutMapping( path = "/{id}")
     public ResponseEntity<AgendarModel> replace(@PathVariable(value = "id") String id , @RequestBody AgendarDTO agendarDTO ){
        return service.update(id ,agendarDTO);
-
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable (value = "id") String id) {
         return service.deleteById(id);
-
-
     }
 }

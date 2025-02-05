@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter @Setter
 @Document(collection = "Agendamentos")
 public class AgendarModel {
 
