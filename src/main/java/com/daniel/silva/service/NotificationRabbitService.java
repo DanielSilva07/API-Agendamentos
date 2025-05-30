@@ -1,6 +1,6 @@
 package com.daniel.silva.service;
 
-import com.daniel.silva.dto.AgendarDTO;
+import com.daniel.silva.dto.AgendarDtoRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -21,10 +21,10 @@ public class NotificationRabbitService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendNotification(AgendarDTO agendarDTO, String exchange) {
+    public void sendNotification(AgendarDtoRequest agendarDtoRequest, String exchange) {
         try {
             log.info("Enviando Notificação para o Exchange {}", exchange);
-            rabbitTemplate.convertAndSend(exchange, "", agendarDTO);
+            rabbitTemplate.convertAndSend(exchange, "", agendarDtoRequest);
         } catch (RuntimeException exception) {
             throw new RuntimeException(exception);
         }
