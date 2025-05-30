@@ -3,7 +3,7 @@ package com.daniel.silva.service;
 import com.daniel.silva.dto.AgendarDtoRequest;
 import com.daniel.silva.dto.AgendarDtoResponse;
 import com.daniel.silva.infra.rabbitmq.NotificationRabbitService;
-import com.daniel.silva.model.AgendarModel;
+import com.daniel.silva.domain.model.AgendarModel;
 import com.daniel.silva.repository.AgendarRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
