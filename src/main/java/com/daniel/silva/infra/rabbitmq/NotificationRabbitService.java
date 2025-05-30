@@ -1,4 +1,4 @@
-package com.daniel.silva.service;
+package com.daniel.silva.infra.rabbitmq;
 
 import com.daniel.silva.dto.AgendarDtoRequest;
 import org.slf4j.Logger;

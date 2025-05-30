@@ -1,4 +1,4 @@
-package com.daniel.silva.infra;
+package com.daniel.silva.infra.rabbitmq;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
