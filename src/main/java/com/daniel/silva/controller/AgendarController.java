@@ -1,6 +1,7 @@
 package com.daniel.silva.controller;
 
-import com.daniel.silva.dto.AgendarDTO;
+import com.daniel.silva.dto.AgendarDtoRequest;
+import com.daniel.silva.dto.AgendarDtoResponse;
 import com.daniel.silva.model.AgendarModel;
 import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
@@ -20,19 +21,18 @@ public class AgendarController {
     }
 
     @PostMapping()
-    public ResponseEntity<AgendarModel> salvar(@RequestBody @Valid  AgendarDTO agendarDTO){
-        return ResponseEntity.status(201).body(service.save(agendarDTO));
+    public ResponseEntity<AgendarModel> salvar(@RequestBody @Valid AgendarDtoRequest agendarDtoRequest){
+        return ResponseEntity.status(201).body(service.save(agendarDtoRequest));
     }
 
     @GetMapping()
-    public ResponseEntity<List<AgendarModel>> getAll(){
+    public ResponseEntity<List<AgendarDtoResponse>> getAll(){
         return ResponseEntity.ok().body(service.getAll());
     }
 
-
     @PutMapping( path = "/{id}")
-    public ResponseEntity<AgendarModel> replace(@PathVariable(value = "id") String id , @RequestBody AgendarDTO agendarDTO ){
-       return service.update(id ,agendarDTO);
+    public ResponseEntity<AgendarModel> replace(@PathVariable(value = "id") String id , @RequestBody AgendarDtoRequest agendarDtoRequest){
+       return service.update(id , agendarDtoRequest);
     }
 
     @DeleteMapping(path = "/{id}")

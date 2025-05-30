@@ -1,6 +1,7 @@
 package com.daniel.silva.service;
 
-import com.daniel.silva.dto.AgendarDTO;
+import com.daniel.silva.dto.AgendarDtoRequest;
+import com.daniel.silva.dto.AgendarDtoResponse;
 import com.daniel.silva.model.AgendarModel;
 import com.daniel.silva.repository.AgendarRepository;
 import org.springframework.http.ResponseEntity;
@@ -23,36 +24,44 @@ public class AgendarService {
 
     }
 
-    public AgendarModel save(AgendarDTO agendarDTO){
+    public AgendarModel save(AgendarDtoRequest agendarDtoRequest){
 
         var agendarModel = new AgendarModel();
-        agendarModel.setNome(agendarDTO.nome());
-        agendarModel.setData(agendarDTO.data());
-        agendarModel.setDescricao(agendarDTO.descricao());
+        agendarModel.setNome(agendarDtoRequest.nome());
+        agendarModel.setData(agendarDtoRequest.data());
+        agendarModel.setDescricao(agendarDtoRequest.descricao());
         agendarModel.setLocalDateTime(LocalDateTime.now());
-        agendarModel.setEmail(agendarDTO.email());
+        agendarModel.setEmail(agendarDtoRequest.email());
 
-        notificationRabbitService.sendNotification(agendarDTO , "agendamento-exchange");
+        notificationRabbitService.sendNotification(agendarDtoRequest,
+                "agendamento-exchange");
 
         return repository.save(agendarModel);
 
 
     }
 
-    public List<AgendarModel> getAll(){
-        return repository.findAll();
+    public List<AgendarDtoResponse> getAll(){
+        return repository.findAll().stream()
+                .map(AgendarModel -> AgendarDtoResponse.builder()
+                        .id(AgendarModel.getId())
+                        .nome(AgendarModel.getNome())
+                        .descricao(AgendarModel.getDescricao())
+                        .data(AgendarModel.getData())
+                        .email(AgendarModel.getEmail())
+                        .build()).toList();
     }
 
-    public ResponseEntity<AgendarModel> update(String id , AgendarDTO agendarDTO){
+    public ResponseEntity<AgendarModel> update(String id ,AgendarDtoRequest agendarDtoRequest){
         if (!repository.existsById(id)){
             return ResponseEntity.notFound().build();
         }
         AgendarModel agendarModel = new AgendarModel();
         agendarModel.setId(id);
-        agendarModel.setNome(agendarDTO.nome());
-        agendarModel.setDescricao(agendarDTO.descricao());
-        agendarModel.setData(agendarDTO.data());
-        agendarModel.setEmail(agendarDTO.email());
+        agendarModel.setNome(agendarDtoRequest.nome());
+        agendarModel.setDescricao(agendarDtoRequest.descricao());
+        agendarModel.setData(agendarDtoRequest.data());
+        agendarModel.setEmail(agendarDtoRequest.email());
 
         return ResponseEntity.ok(repository.save(agendarModel));
 
