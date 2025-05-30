@@ -2,7 +2,7 @@ package com.daniel.silva.controller;
 
 import com.daniel.silva.dto.AgendarDtoRequest;
 import com.daniel.silva.dto.AgendarDtoResponse;
-import com.daniel.silva.model.AgendarModel;
+import com.daniel.silva.domain.model.AgendarModel;
 import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
