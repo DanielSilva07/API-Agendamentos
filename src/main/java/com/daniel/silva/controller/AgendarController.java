@@ -17,26 +17,25 @@ public class AgendarController {
 
     public AgendarController(AgendarService service){
         this.service=service;
-
     }
 
     @PostMapping()
-    public ResponseEntity<AgendarModel> salvar(@RequestBody @Valid AgendarDtoRequest agendarDtoRequest){
+    public ResponseEntity<AgendarModel>salvar(@RequestBody @Valid AgendarDtoRequest agendarDtoRequest){
         return ResponseEntity.status(201).body(service.save(agendarDtoRequest));
     }
 
     @GetMapping()
-    public ResponseEntity<List<AgendarDtoResponse>> getAll(){
+    public ResponseEntity<List<AgendarDtoResponse>>getAll(){
         return ResponseEntity.ok().body(service.getAll());
     }
 
     @PutMapping( path = "/{id}")
-    public ResponseEntity<AgendarModel> replace(@PathVariable(value = "id") String id , @RequestBody AgendarDtoRequest agendarDtoRequest){
+    public ResponseEntity<AgendarModel>replace(@PathVariable(value = "id") Long id , @RequestBody AgendarDtoRequest agendarDtoRequest){
        return service.update(id , agendarDtoRequest);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Object> deleteById(@PathVariable (value = "id") String id) {
+    public ResponseEntity<Object>deleteById(@PathVariable (value = "id") Long id) {
         return service.deleteById(id);
     }
 }

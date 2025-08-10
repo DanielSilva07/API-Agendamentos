@@ -1,32 +1,38 @@
 package com.daniel.silva.domain.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-@Document(collection = "Agendamentos")
+@Builder
+@Entity
+@Table(name = "Agendamentos")
 public class AgendarModel {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     @NotBlank
     private String nome;
 
+    @NotBlank
     private String descricao;
 
     @NotBlank
     private String data;
 
+    @NotBlank
+    @Email
     private String email;
 
+    @FutureOrPresent
     private LocalDateTime localDateTime ;
-
-
 }
