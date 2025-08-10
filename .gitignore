@@ -38,5 +38,7 @@ build/
 mvnw.cmd
 mvn
 mvn/wrapper/maven-wrapper.jar
-env
+.env
 mvnw
+env
+api.env
