@@ -18,11 +18,6 @@ target/
 *.iws
 *.iml
 *.ipr
-mvnw.cmd
-.mvn
-.mvn/wrapper/maven-wrapper.jar
-env
-mvnw
 
 
 ### NetBeans ###
@@ -37,3 +32,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+mvnw.cmd
+mvn
+mvn/wrapper/maven-wrapper.jar
+env
+mvnw
