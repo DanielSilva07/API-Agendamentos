@@ -33,12 +33,13 @@ build/
 ### VS Code ###
 .vscode/
 
-
+.gitignore
+target
+env
 
 mvnw.cmd
 mvn
 mvn/wrapper/maven-wrapper.jar
 .env
 mvnw
-env
 api.env
