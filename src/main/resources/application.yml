@@ -1,6 +1,19 @@
 spring:
-  data:
-    mongodb:
-      database: Agendamentos
-      host: daniel00mongodb
-      port: 27017
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+
+
+
+

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class AgendarDtoResponse{
 
-    String id;
+    Long id;
     String nome;
     String descricao;
     String data;
