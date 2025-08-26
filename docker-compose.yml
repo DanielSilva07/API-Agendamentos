@@ -38,7 +38,7 @@ services:
     container_name: agendamentos
     restart: unless-stopped
     env_file:
-      - ./env/api.env
+      - ./env/db.env
     environment:
       - SERVER_PORT=8090
     depends_on:
