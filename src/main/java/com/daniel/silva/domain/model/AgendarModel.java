@@ -33,6 +33,5 @@ public class AgendarModel {
     @Email
     private String email;
 
-    @FutureOrPresent
     private LocalDateTime localDateTime ;
 }
