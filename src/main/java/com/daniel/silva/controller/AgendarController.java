@@ -5,6 +5,7 @@ import com.daniel.silva.dto.AgendarDtoResponse;
 import com.daniel.silva.domain.model.AgendarModel;
 import com.daniel.silva.service.AgendarService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -21,7 +22,7 @@ public class AgendarController {
 
     @PostMapping()
     public ResponseEntity<AgendarModel>salvar(@RequestBody @Valid AgendarDtoRequest agendarDtoRequest){
-        return ResponseEntity.status(201).body(service.save(agendarDtoRequest));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(agendarDtoRequest));
     }
 
     @GetMapping()
